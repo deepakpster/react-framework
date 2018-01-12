@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DashboardComponent from '../../components/dashboard';
+import { selectGreeting } from './../../actions/dashboard';
 
 class Dashboard extends Component {
 	getGreetingInfo() {
@@ -9,7 +10,7 @@ class Dashboard extends Component {
 	}
 	render() {
 		return (
-			<DashboardComponent title={this.getGreetingInfo()} />
+			<DashboardComponent title={this.getGreetingInfo()} onGreetingSelect={this.props.selectGreeting} />
 		);
 	}
 }
@@ -17,7 +18,12 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
 	return {
 		dashboard: state.dashboard,
+		users: state.users,
 	};
 }
-
-export default connect(mapStateToProps)(Dashboard);
+function matchDispatchToProps(dispatch) {
+	return bindActionCreators({
+		selectGreeting,
+	}, dispatch);
+}
+export default connect(mapStateToProps, matchDispatchToProps)(Dashboard);

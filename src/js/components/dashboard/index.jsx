@@ -1,16 +1,19 @@
 // @flow
 import React from 'react';
+import UserContainer from './../../containers/user';
 
 type Props = {
-	title: string
+	title: string,
+	onGreetingSelect: Function
 };
 
 const Dashboard = (props: Props) => (
 	<div>
-		<h1>{props.title}</h1>
+		<h1 onClick={() => props.onGreetingSelect(props.title)} >{props.title}</h1>
 		<hr />
 		<p>Hey World.</p>
-	</div>
+		<UserContainer />
+	</div >
 );
 
 export default Dashboard;
