@@ -18,7 +18,6 @@ class Dashboard extends Component {
 function mapStateToProps(state) {
 	return {
 		dashboard: state.dashboard,
-		users: state.users,
 	};
 }
 function matchDispatchToProps(dispatch) {

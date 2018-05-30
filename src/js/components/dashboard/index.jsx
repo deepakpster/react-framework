@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import UserContainer from './../../containers/user';
+import styles from './styles.scss';
 
 type Props = {
 	title: string,
@@ -12,7 +12,6 @@ const Dashboard = (props: Props) => (
 		<h1 onClick={() => props.onGreetingSelect(props.title)} >{props.title}</h1>
 		<hr />
 		<p>Hey World.</p>
-		<UserContainer />
 	</div >
 );
 
